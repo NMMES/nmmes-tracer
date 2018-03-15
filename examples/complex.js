@@ -4,8 +4,14 @@ const Tracer = require('../');
 const chalk = require('chalk');
 
 const logger = new Tracer.Logger({
-    format: "{{=it.timestamp}} [{{=it.title}}] {{=it.file}}:{{=it.line}} ({{=it.method}}) {{=it.message}}",
-    level: 'trace',
+    levels: ['trace', 'debug', 'log', 'info', 'warn', 'error', 'fatal'],
+    level: 'log',
+    format: ["<{{=it.title}}> {{=it.message}}",
+        {
+            debug: "<{{=it.title}}> {{=it.timestamp}} [{{=it.file}}:{{=it.line}}] {{=it.message}}",
+            trace: "<{{=it.title}}> {{=it.timestamp}} ({{=it.method}}) [{{=it.file}}:{{=it.line}}] {{=it.message}}"
+        }
+    ],
     transports: [
         new Tracer.transports.Console({
             format: {
@@ -15,9 +21,9 @@ const logger = new Tracer.Logger({
                 fatal: chalk.red
             }
         }),
-        new Tracer.transports.Console({
-            format: JSON.stringify
-        })
+        // new Tracer.transports.Console({
+        //     format: JSON.stringify
+        // })
     ]
 });
 

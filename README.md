@@ -26,3 +26,5 @@ const logger = new Tracer.Logger({
 
 logger.log('hello world!');
 ```
+
+See [examples directory](https://github.com/NMMES/nmmes-tracer/tree/master/examples) for examples.

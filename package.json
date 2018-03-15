@@ -1,0 +1,17 @@
+{
+    "name": "nmmes-tracer",
+    "version": "0.0.1",
+    "description": "A logger for the nmmes family",
+    "main": "index.js",
+    "repository": "https://github.com/NMMES/nmmes-tracer",
+    "author": "Ayrton Sparling <ayrton@sparling.us>",
+    "license": "MIT",
+    "dependencies": {
+        "dot": "^1.1.2",
+        "moment": "^2.21.0",
+        "strip-ansi": "^4.0.0"
+    },
+    "devDependencies": {
+        "chalk": "^2.3.2"
+    }
+}

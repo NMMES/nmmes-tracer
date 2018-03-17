@@ -4,7 +4,7 @@
 Inspired by [tracer](https://github.com/baryon/tracer) but with the following in mind.
 - ES6 syntax
 - Simplified infrastructure
-- Async transports so application is never blocked
+- Async transports so applications are never blocked
 
 NMMES-tracer does a few things better than tracer in my opinion, these include
 - Highly reactive to changed settings (change anything on the fly)

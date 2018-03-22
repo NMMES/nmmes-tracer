@@ -8,7 +8,7 @@ const logger = new Tracer.Logger({
     levels: ['trace', 'debug', 'log', 'info', 'warn', 'error', 'fatal'],
     level: 'debug',
     dateformat: 'llll',
-    format: ["<{{=it.title}}> {{=it.message}}",
+    format: ["<{{=it.title}}>{{?it.context}} {{=it.context}}{{?}} {{=it.message}}",
         {
             debug: "<{{=it.title}}> {{=it.timestamp}} [{{=it.file}}:{{=it.line}}] {{=it.message}}",
             trace: "<{{=it.title}}> {{=it.timestamp}} ({{=it.method}}) [{{=it.file}}:{{=it.line}}] {{=it.message}}"
@@ -36,11 +36,7 @@ const logger = new Tracer.Logger({
 });
 
 async function sampleFunction() {
-    logger.trace(1, 'test', ['array'], {
-        nested: {
-            obj: true
-        }
-    });
+    logger.trace("I will not display because the log level is set to debug");
     logger.debug('test', ['array'], {
         nested: {
             obj: true
@@ -56,9 +52,9 @@ async function sampleFunction() {
             obj: true
         }
     });
-    console.log("Not flushed!");
-    await logger.flush();
-    console.log("Flushed!");
+    console.log("Displayed before logger has finished writing");
+    await logger.flush(); // wait for logger to finish writing
+    console.log("Logger has finished writing");
     logger.warn('test', ['array'], {
         nested: {
             obj: true
@@ -84,6 +80,13 @@ async function sampleFunction() {
         replace: true,
         id: 'dieing'
     }, 'meh its ok, I just replaced the last msg');
+
+    let contextedLogger = logger.new({contextualLogger: true});
+
+    contextedLogger.log('this is a message from the contextual logger');
+    contextedLogger.new({nested: "context"}).log('oh god no!');
+
+    logger.info("Original logger was uneffected by contextual logger");
 }
 
 sampleFunction();

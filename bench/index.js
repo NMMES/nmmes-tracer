@@ -1,6 +1,7 @@
 const Tracer = require('../');
 
 const logger = new Tracer.Logger({
+    format: "{{=it.message}}",
     transports: [
         new Tracer.transports.Console()
     ]
@@ -16,6 +17,10 @@ suite
     })
     .add('log', () => {
         logger.log('bench');
+    })
+    .add('contextual', () => {
+        const ctx = logger.new({contexted: "ctx"})
+        ctx.log('bench');
     })
     .on('cycle', event => {
         cycles.push(String(event.target))

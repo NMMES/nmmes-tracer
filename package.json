@@ -7,7 +7,8 @@
     "author": "Ayrton Sparling <ayrton@sparling.us>",
     "license": "MIT",
     "scripts": {
-        "bench": "node bench"
+        "bench": "node bench",
+        "postversion": "git push && npm publish"
     },
     "dependencies": {
         "dot": "^1.1.2",

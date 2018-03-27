@@ -7,8 +7,10 @@ const passthroughPipe = new PassThrough();
 
 const logger = new Tracer.Logger({
     transports: [
-        new Tracer.transports.Stream({
-            pipe: passthroughPipe
+        new Tracer.transports.Raw({
+            function: (string, ops, details) => {
+                passthroughPipe.write(string+'\n');
+            }
         })
     ]
 });

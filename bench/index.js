@@ -19,7 +19,7 @@ suite
         logger.log('bench');
     })
     .add('contextual', () => {
-        const ctx = logger.new({contexted: "ctx"})
+        const ctx = logger.new({contexted: "ctx"});
         ctx.log('bench');
     })
     .on('cycle', event => {

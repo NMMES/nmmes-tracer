@@ -2,6 +2,7 @@ const Tracer = require('../');
 
 const logger = new Tracer.Logger({
     format: "{{=it.message}}",
+    // format: "<{{=it.title}}>{{?it.context}} {{=it.context}}{{?}} {{=it.message}}",
     transports: [
         new Tracer.transports.Console()
     ]

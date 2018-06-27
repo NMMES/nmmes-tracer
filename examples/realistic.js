@@ -23,8 +23,8 @@ const logger = new Tracer.Logger({
     },
     preprocessor: (data, ops) => {
         if (data.level >= 6) {
-            data.message.unshift('⚠️');
-            data.message.push('⚠️');
+            data.message.unshift('!⚠️');
+            data.message.push('⚠️!');
         }
         return [data, ops];
     },

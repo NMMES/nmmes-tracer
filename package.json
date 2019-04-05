@@ -1,6 +1,6 @@
 {
     "name": "nmmes-tracer",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "A logger for the nmmes family",
     "main": "index.js",
     "repository": "https://github.com/NMMES/nmmes-tracer",

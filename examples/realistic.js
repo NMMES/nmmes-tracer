@@ -6,7 +6,7 @@ const chalk = require('chalk');
 const logger = new Tracer.Logger({
     levels: ['trace', 'debug', 'log', 'info', 'warn', 'error', 'fatal'],
     level: 'trace',
-    dateformat: 'llll',
+    dateformat: 'FFF',
     format: ["<{{=it.title}}> {{=it.message}}",
         {
             debug: "<{{=it.title}}> {{=it.timestamp}} [{{=it.file}}:{{=it.line}}] {{=it.message}}",

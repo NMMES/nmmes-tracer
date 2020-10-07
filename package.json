@@ -11,12 +11,12 @@
         "postversion": "git push && npm publish"
     },
     "dependencies": {
-        "dot": "^1.1.2",
-        "moment": "^2.21.0",
-        "strip-ansi": "^4.0.0"
+        "dot": "beta",
+        "luxon": "^1.25.0",
+        "strip-ansi": "^6.0.0"
     },
     "devDependencies": {
         "benchmark": "^2.1.4",
-        "chalk": "^2.3.2"
+        "chalk": "^4.1.0"
     }
 }

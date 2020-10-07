@@ -7,7 +7,7 @@ const strip = require('strip-ansi');
 const logger = new Tracer.Logger({
     levels: ['trace', 'debug', 'log', 'info', 'warn', 'error', 'fatal'],
     level: 'debug',
-    dateformat: 'llll',
+    dateformat: 'X',
     format: ["<{{=it.title}}>{{?it.context}} {{=it.context}}{{?}} {{=it.message}}",
         {
             debug: "<{{=it.title}}> {{=it.timestamp}} [{{=it.file}}:{{=it.line}}] {{=it.message}}",
